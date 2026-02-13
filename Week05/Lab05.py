@@ -28,14 +28,14 @@ def fib(n):
     Returns:
         int: The nth Fibonacci number
     """
-    # TODO: Base case 1 - If n equals 0, return 0
-
-
-    # TODO: Base case 2 - If n equals 1, return 1
-
-    #
-    # TODO: Recursive case - Return fib(n-1) + fib(n-2)
-    pass  # Remove this line when you add your code
+    # Base case 1 - If n equals 0, return 0
+    if n == 0:
+        return 0
+    # Base case 2 - If n equals 1, return 1
+    if n == 1:
+        return 1
+    # Recursive case - Return fib(n-1) + fib(n-2)
+    return fib(n - 1) + fib(n - 2)
 
 
 # Test cases for Fibonacci
