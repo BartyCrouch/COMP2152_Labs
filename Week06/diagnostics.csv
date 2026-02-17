@@ -1,4 +1,0 @@
-2026-02-17 11:44:36,ping,youtube.com,4.913,Success
-2026-02-17 11:45:08,nslookup,youtube.com,192.178.192.91,Success
-2026-02-17 11:45:27,ifconfig,en0,b6:ba:3b:6b:2f:a4 / 10.16.34.155,Captured
-2026-02-17 11:45:43,arp,local,7 devices,Captured
