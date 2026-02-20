@@ -1,0 +1,10 @@
+[2026-02-20 11:27:03] PING georgebrown.ca
+PING georgebrown.ca (10.10.12.136): 56 data bytes
+64 bytes from 10.10.12.136: icmp_seq=0 ttl=253 time=4.102 ms
+64 bytes from 10.10.12.136: icmp_seq=1 ttl=253 time=3.877 ms
+64 bytes from 10.10.12.136: icmp_seq=2 ttl=253 time=4.884 ms
+
+--- georgebrown.ca ping statistics ---
+3 packets transmitted, 3 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 3.877/4.288/4.884/0.432 ms
+----------------------------------------
