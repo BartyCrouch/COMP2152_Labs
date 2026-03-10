@@ -39,7 +39,20 @@ def get_system_info():
         "release": platform.release(),
         "machine": platform.machine(),
     }
+def get_python_info():
+    return {
+        "version": sys.version,
+        "executable": sys.executable,
+        "platform": sys.platform,
+    }
 
+def get_directory_info(path):
+    return {
+        "path": os.path.abspath(path),
+        "exists": os.path.exists(path),
+        "file_count": len(os.listdir(path)) if os.path.exists(path) else 0,
+        "is_directory": os.path.isdir(path),
+    }
 
 
 # --- Main (provided) ---
