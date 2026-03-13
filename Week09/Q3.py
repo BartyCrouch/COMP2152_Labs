@@ -52,9 +52,6 @@ class TestValidIP(unittest.TestCase):
         self.assertFalse(is_valid_ip("10.10.10"))                
     def test_empty(self):
         self.assertFalse(is_valid_ip(""))                        
-        
-    
-
 
 # TODO: Complete TestFizzBuzz
 #   test_fizz     → fizzbuzz(3)  == "Fizz"
@@ -62,7 +59,15 @@ class TestValidIP(unittest.TestCase):
 #   test_fizzbuzz → fizzbuzz(15) == "FizzBuzz"
 #   test_number   → fizzbuzz(7)  == "7"
 class TestFizzBuzz(unittest.TestCase):
-    pass
+    def test_fizz(self):
+        self.assertEqual(fizzbuzz(3), "Fizz")
+    def test_buzz(self):
+        self.assertEqual(fizzbuzz(5), "Buzz")       
+    def test_fizzbuzz(self):
+        self.assertEqual(fizzbuzz(15), "BFizzBuzzuzz")                
+    def test_number(self):
+        self.assertEqual(fizzbuzz(7), "7")                        
+
 
 
 if __name__ == "__main__":
