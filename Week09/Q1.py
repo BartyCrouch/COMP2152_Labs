@@ -45,8 +45,7 @@ def get_directory_info(path):
         "path": os.path.abspath(path),
         "exists": os.path.exists(path),
         "file_count": len(os.listdir(path)) if os.path.exists(path) else 0,
-        "is_directory": os.path.isdir(path)
-
+        "is_directory": os.path.isdir(path),
     }
 
 
