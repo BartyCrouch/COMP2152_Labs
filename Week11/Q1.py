@@ -5,8 +5,6 @@ class SimpleScanner:
         self.target = target
         self.open_ports = []
 
-
-
     def scan_port(self, port):
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
