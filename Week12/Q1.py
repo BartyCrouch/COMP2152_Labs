@@ -37,21 +37,16 @@ class PortScanner(Scanner):
 
 class HTTPScanner(Scanner):
     """Child class — scans HTTP paths for accessible pages."""
-
-    # TODO: Write __init__(self, target, paths)
-    #   Call the parent constructor: super().__init__(target)
-    #   Store self.paths (a list of URL paths like "/", "/admin")
     def __init__(self, target, paths):
-        pass
-
-    # TODO: Write scan(self)
-    #   Loop through self.paths
-    #   For each path:
-    #     Try: urllib.request.urlopen(f"http://{self.target}{path}")
-    #       Append f"{path} → {response.status} (accessible)" to self.results
-    #     Except: Append f"{path} → NOT FOUND" to self.results
+        super().__init__(target)
+        self.paths = paths
     def scan(self):
-        pass
+        for path in self.paths:
+            try:
+                response = urllib.request.urlopen(f"http://{self.target}{path}")
+                self.results.append(f"{path} → {response.status} (accessible)")
+            except Exception:
+                self.results.append(f"{path} → NOT FOUND")
 
 
 # --- Main (provided) ---
