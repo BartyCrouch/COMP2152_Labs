@@ -1,64 +1,52 @@
-# ============================================================
-#  WEEK 12 LAB — Q1: SCANNER INHERITANCE
-#  COMP2152 — [Your Name Here]
-# ============================================================
-
 import socket
 import urllib.request
 
-
 class Scanner:
     """Parent class — shared by all scanner types."""
-
     def __init__(self, target):
         self.target = target
         self.results = []
 
-    # TODO: Write display_results(self)
-    #   Print "Results for {self.target}:"
-    #   If self.results is empty: print "  (no results)"
-    #   Otherwise: print each result with "  " indent
     def display_results(self):
-        pass
-
-
+        print(f"    Results for {self.target}:")
+        if not self.results:
+            print(f"    (no results)")
+        else:
+            for r in self.results:
+                print(f"    {r})")
 class PortScanner(Scanner):
     """Child class — scans for open ports."""
-
-    # TODO: Write __init__(self, target, ports)
-    #   Call the parent constructor: super().__init__(target)
-    #   Store self.ports (a list of port numbers)
     def __init__(self, target, ports):
-        pass
-
-    # TODO: Write scan(self)
-    #   Loop through self.ports
-    #   For each port:
-    #     Create a socket, set timeout to 1, use connect_ex
-    #     If result == 0: append f"Port {port}: OPEN" to self.results
-    #     Else: append f"Port {port}: closed" to self.results
-    #     Close the socket
+        super().__init__(target)
+        self.ports = ports
     def scan(self):
-        pass
-
+        for port in self.ports:
+            try:
+                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                sock.settimeout(1)
+                result = sock.connect_ex((self.target, port))
+                if result == 0:
+                    self.results.append(f"Port {port}: OPEN")
+                else:
+                    self.results.append(f"Port {port}: closed")
+                sock.close()
+            except socket.error as e:
+                self.results.append(f"Port {port}: error {e}")
 
 class HTTPScanner(Scanner):
     """Child class — scans HTTP paths for accessible pages."""
-
-    # TODO: Write __init__(self, target, paths)
-    #   Call the parent constructor: super().__init__(target)
-    #   Store self.paths (a list of URL paths like "/", "/admin")
     def __init__(self, target, paths):
-        pass
+        super().__init__(target)
+        self.paths = paths
 
-    # TODO: Write scan(self)
-    #   Loop through self.paths
-    #   For each path:
-    #     Try: urllib.request.urlopen(f"http://{self.target}{path}")
-    #       Append f"{path} → {response.status} (accessible)" to self.results
-    #     Except: Append f"{path} → NOT FOUND" to self.results
     def scan(self):
-        pass
+        for path in self.paths:
+            try:
+                response = urllib.urlopen(f"http://{self.target}{path}")
+                self.results.append(f"{path} → {response.status} (accessible)")
+            except Exception:
+                self.results.append(f"{path} →  NOT FOUND")
+                
 
 
 # --- Main (provided) ---
