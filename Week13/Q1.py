@@ -42,8 +42,8 @@ def load_findings(filename):
 def count_by_field(findings, field):
     counts = {}
     for f in findings:
-        val = f[field]
-        counts[val] = counts.get(val, 0) + 1
+        val = f[field]                             # git add . && git commit -m "add q1 w13"
+        counts[val] = counts.get(val, 0) + 1       # git push --set-upstream origin lab_week13
     return counts
 
 def filter_findings(findings, field, value):
