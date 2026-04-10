@@ -32,16 +32,9 @@ def create_sample_data():
         writer.writeheader()
         writer.writerows(data)
 
-
-
-
-
-
-
-
 def load_findings(filename):
     with open(filename, "r") as f:
-        reader = csv.DictWriter(f)
+        reader = csv.DictReader(f)
         return list(reader)
 
 
@@ -64,17 +57,6 @@ def filter_findings(findings, field, value):
 def top_subdomains(findings, n):
     counts = count_by_field(findings, "subdomain")
     return sorted(counts.items(), key=lambda x: x[1], reverse=True)[:n]
-
-
-
-
-
-
-
-
-
-
-
 
 
 # --- Main (provided) ---
